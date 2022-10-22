@@ -9,63 +9,42 @@ namespace AlexzanderCowell
 
 }
 public class GameManager : MonoBehaviour{
-    
-    private int changePlant;
+
+    [SerializeField] Text roundCounter;
     [SerializeField] PlantsList plantList;
-    private void Update(){
-        changePlant = (UnityEngine.Random.Range(0, 11));
+    [SerializeField] ScoreSystem scoreSystem;
+    [SerializeField] SceneLoader sceneLoader;
+
+    private int roundClickMax = 20;
+    private int roundClickMin = 0;
+
+
+    public void RoundCountDown()
+    {
+        roundClickMax -= (1);
+
+        roundCounter.text = "Rounds: " + roundClickMax.ToString();
+
+        if (roundClickMax == (1))
+        {
+            Debug.Log("Final Flower!");
+        }
+        
+        
+        if (roundClickMax == roundClickMin)
+        {
+            sceneLoader.Leaderboard();
+        }
+
+
+
     }
 
-    public void PlantChanging(){
-        if (changePlant == (0)){
-            plantList.Plant0();
-        }
 
-        if (changePlant == (1)){
-            plantList.Plant1();
-        }
 
-        if (changePlant == (2)){
-            plantList.Plant2();
-        }
 
-        if (changePlant == (3)){
-            plantList.Plant3();
-        }
-        if (changePlant == (4)){
-            plantList.Plant4();
-        }
-        if (changePlant == (5)){
-            plantList.Plant5();
-        }
-        if (changePlant == (6))
-        {
-            plantList.Plant6();
-        }
 
-        if (changePlant == (7))
-        {
-            plantList.Plant7();
-        }
 
-        if (changePlant == (8))
-        {
-            plantList.Plant8();
-        }
-
-        if (changePlant == (9))
-        {
-            plantList.Plant9();
-        }
-        if (changePlant == (10))
-        {
-            plantList.Plant10();
-        }
-        if (changePlant == (11))
-        {
-            plantList.Plant11();
-        }
-    }
 
 
 }

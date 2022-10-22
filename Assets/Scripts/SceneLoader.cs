@@ -10,11 +10,11 @@ namespace AlexzanderCowell
 }
 public class SceneLoader : MonoBehaviour
 {
+    [SerializeField] PlantsList plantsL;
     GameManager gameManager;
     public void StartGame()
     {
-        SceneManager.LoadScene(sceneName: "Greenhouse");
-
+        SceneManager.LoadScene(sceneName: "Greenhouse");       
     }
 
     public void Leaderboard()
