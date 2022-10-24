@@ -1,3 +1,9 @@
-Plant Name 
-
-Plant Name Snowdrop/n
+|Plant Name: Sun Flower| |Plant Value: 7| |Plant Health: 6|
+|Plant Name: Water Lily| |Plant Value: 8| |Plant Health: 8|
+|Plant Name: Delilah| |Plant Value: 13| |Plant Health: 6|
+|Plant Name: tigerLilly| |Plant Value: 11| |Plant Health: 7|
+|Plant Name: Carnation| |Plant Value: 10| |Plant Health: 6|
+|Plant Name: Narcissus| |Plant Value: 8| |Plant Health: 2|
+|Plant Name: Water Lily| |Plant Value: 14| |Plant Health: 4|
+|Plant Name: Angel Pedal| |Plant Value: 6| |Plant Health: 4|
+|Plant Name: Prim Rose| |Plant Value: 8| |Plant Health: 3|

@@ -40,16 +40,4 @@ public class GameManager : MonoBehaviour{
 
     }
 
-    public void GreenHouseLog()
-    {
-        string path = Application.dataPath + "/Greenhouse.txt";
-        if (File.Exists(path))
-        {
-            File.WriteAllText(path, "Plant Name \n\n");
-        }
-        string content = "Plant Name " + plantList.returnArray + "/n";
-
-        File.AppendAllText(path, content);
-    }
-
 }
