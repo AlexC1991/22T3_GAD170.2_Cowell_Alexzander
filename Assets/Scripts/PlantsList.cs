@@ -15,6 +15,7 @@ public class PlantsList : MonoBehaviour{
 
     // Plant List in a Array //
     private List<string> _plantArray = new List<string>();
+    
 
     // Max Price & Health Range for Plants //
     
@@ -29,6 +30,15 @@ public class PlantsList : MonoBehaviour{
     private float randomPrice;
     private float randomHealth;
     private string randomArray;
+
+    // Return Floats + String
+
+    [HideInInspector]
+    public float returnPrice;
+    [HideInInspector]
+    public float returnHealth;
+    [HideInInspector]
+    public string returnArray;
 
 
     // Plant names for the list
@@ -71,10 +81,17 @@ public class PlantsList : MonoBehaviour{
         randomPrice = (UnityEngine.Random.Range(minPrice, maxPrice));
         randomHealth = (UnityEngine.Random.Range(minHealth, maxHealth));
         randomArray = _plantArray[UnityEngine.Random.Range(0, _plantArray.Count)];
+
     }
      // This Prints out the Text for the Text Box using the random values and strings.
-    public void PlantToText(){
-        plantCaller.text = "You found a "+ randomArray + ", this flower is worth $"+randomPrice+ " and the health of this flower is " +randomHealth+"/10. Do you want to keep it or reject it?".ToString();
+    public void PlantToText()
+    {
+        returnArray = randomArray;
+        returnPrice = randomPrice;
+        returnHealth = randomHealth;
+       
+        plantCaller.text = "You found a " + returnArray + ", this flower is worth $" + returnPrice + " and the health of this flower is " + returnHealth + "/10. Do you want to keep it or reject it?".ToString();
+
         
     }
 

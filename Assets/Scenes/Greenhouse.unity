@@ -1295,6 +1295,66 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1763798920}
+        m_TargetAssemblyTypeName: ScoreSystem, Assembly-CSharp
+        m_MethodName: Score
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 918635383}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1763798916}
+        m_TargetAssemblyTypeName: PlantsList, Assembly-CSharp
+        m_MethodName: PlantToText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1763798918}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: GreenHouseLog
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1763798921}
+        m_TargetAssemblyTypeName: WriteStats, Assembly-CSharp
+        m_MethodName: StartKey
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1027818934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1692,6 +1752,7 @@ GameObject:
   - component: {fileID: 1763798916}
   - component: {fileID: 1763798920}
   - component: {fileID: 1763798919}
+  - component: {fileID: 1763798921}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1712,6 +1773,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plantCaller: {fileID: 2317877}
+  returnPrice: 0
+  returnHealth: 0
+  returnArray: 
 --- !u!4 &1763798917
 Transform:
   m_ObjectHideFlags: 0
@@ -1770,6 +1834,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e220c7060cfe904bb921a351bd0331d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plantList: {fileID: 1763798916}
+  priceTotal: 0
+  healthTotal: 0
+  greenHouse: 
+--- !u!114 &1763798921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763798915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c750cec6c50059468a2a1a3f1355bae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantName: 
+  plantValue: 0
+  plantHealth: 0
 --- !u!114 &2118326339 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4653942318848516394, guid: da435eb59f9781c49888a9489ec2db72, type: 3}
