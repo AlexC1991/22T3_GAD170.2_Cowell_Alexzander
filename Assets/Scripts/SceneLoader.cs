@@ -15,8 +15,8 @@ public class SceneLoader : MonoBehaviour
     GameManager gameManager;
     public void StartGame()
     {
-         gp = FindObjectOfType<Gameplay>();
-        gp.checkingGreen = false;
+         //gp = FindObjectOfType<Gameplay>();
+        //gp.checkingGreen = false;
         SceneManager.LoadScene(sceneName: "Greenhouse");       
     }
 

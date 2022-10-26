@@ -18,3 +18,26 @@
 |Plant Name: Rose Bud| |Plant Value: 9| |Plant Health: 2|
 |Plant Name: Cactus Flower| |Plant Value: 5| |Plant Health: 7|
 |Plant Name: White Rose| |Plant Value: 8| |Plant Health: 8|
+|Plant Name: Marygold| |Plant Value: 5| |Plant Health: 6|
+|Plant Name: Jasmine| |Plant Value: 2| |Plant Health: 3|
+|Plant Name: Poppy| |Plant Value: 0| |Plant Health: 3|
+|Plant Name: Tulp| |Plant Value: 7| |Plant Health: 7|
+|Plant Name: Cactus Flower| |Plant Value: 10| |Plant Health: 7|
+|Plant Name: Periwinkle| |Plant Value: 1| |Plant Health: 2|
+|Plant Name: Carnation| |Plant Value: 2| |Plant Health: 2|
+|Plant Name: Prim Rose| |Plant Value: 8| |Plant Health: 1|
+|Plant Name: Daisy| |Plant Value: 14| |Plant Health: 8|
+|Plant Name: Periwinkle| |Plant Value: 10| |Plant Health: 2|
+|Plant Name: Daffodils| |Plant Value: 1| |Plant Health: 1|
+|Plant Name: tigerLilly| |Plant Value: 7| |Plant Health: 7|
+|Plant Name: Water Lily| |Plant Value: 12| |Plant Health: 8|
+|Plant Name: Narcissus| |Plant Value: 13| |Plant Health: 9|
+|Plant Name: Tulp| |Plant Value: 5| |Plant Health: 3|
+|Plant Name: Delilah| |Plant Value: 11| |Plant Health: 0|
+|Plant Name: Daisy| |Plant Value: 0| |Plant Health: 1|
+|Plant Name: Lotus| |Plant Value: 6| |Plant Health: 6|
+|Plant Name: Marygold| |Plant Value: 1| |Plant Health: 0|
+|Plant Name: Poppy| |Plant Value: 11| |Plant Health: 3|
+|Plant Name: Red Hornet| |Plant Value: 6| |Plant Health: 6|
+|Plant Name: Hyacinth| |Plant Value: 1| |Plant Health: 0|
+|Plant Name: Blue Bell| |Plant Value: 4| |Plant Health: 5|
