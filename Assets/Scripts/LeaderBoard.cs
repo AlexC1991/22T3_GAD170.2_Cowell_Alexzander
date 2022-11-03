@@ -21,44 +21,32 @@ public class LeaderBoard : MonoBehaviour
 
     private string dollarPlant;
     private string healthPlant;
-    private string namePlant;
-    private string []greenHouse;
-    private string fileName;
-    private string fullPath;
-    private bool calculateIt = false;
-    private float maxNumber = 10;
-    private float transferNumber;
+    public string namePlant;
+    [HideInInspector]
+    public string fileName;
+    [HideInInspector]
+    public string fullPath;
+    [HideInInspector]
+    public float transferNumber;
+    [HideInInspector]
+    public int buttonCounter;
 
 
 
     private void Update(){
-        fileName = "Assets/GreenHouse.txt";
+        fileName = "Assets/StreamingAssets/GreenHouse.txt";
         fullPath = Path.GetFullPath(fileName);
 
     }
     private void SaveData()
     {
+        buttonCounter += 1;
+
             using (StreamWriter greenHouse = new StreamWriter(fullPath, true)) { 
             greenHouse.WriteLine("|Plant Name: " + namePlant + "| |Plant Value: " + dollarPlant + "| |Plant Health: " + healthPlant + "|");
         }
 
     }
-    public void LoadData()
-    {
-        string text = File.ReadAllText(fileName);
-
-        printItOut.text = text.ToString();
-
-        transferNumber = Convert.ToInt32(text);
-
-        
-        
-
-        Debug.Log(transferNumber);
-    }
-
-
-
     public void StartKey(){
 
             namePlant = plantInfo.returnArray;

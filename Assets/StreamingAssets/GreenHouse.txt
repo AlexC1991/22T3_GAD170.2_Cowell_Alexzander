@@ -1,0 +1,7 @@
+|Plant Name: Jasmine| |Plant Value: 6| |Plant Health: 0|
+|Plant Name: Gold Rose| |Plant Value: 14| |Plant Health: 8|
+|Plant Name: Carnation| |Plant Value: 14| |Plant Health: 2|
+|Plant Name: tigerLilly| |Plant Value: 9| |Plant Health: 2|
+|Plant Name: Poppy| |Plant Value: 13| |Plant Health: 7|
+|Plant Name: Buttercup| |Plant Value: 3| |Plant Health: 2|
+|Plant Name: Lotus Leaf| |Plant Value: 11| |Plant Health: 8|

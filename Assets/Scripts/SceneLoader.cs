@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 
 namespace AlexzanderCowell
@@ -10,14 +11,32 @@ namespace AlexzanderCowell
 }
 public class SceneLoader : MonoBehaviour
 {
-    private bool checkingGreen = false;
     [SerializeField] PlantsList plantsL;
     GameManager gameManager;
+    [SerializeField] GameObject greenHouseUI;
+    [SerializeField] GameObject canvasGame;
+    [SerializeField] GameObject canvasGreenRoom;
+    [SerializeField] LeaderBoard leaderB;
+    public void ChangeToGreenHouseRoom()
+    {
+
+        {
+            canvasGame.GetComponent<CanvasGroup>().alpha = 0;
+            canvasGreenRoom.GetComponent<CanvasGroup>().alpha = 1;
+        }
+
+    }    
+    public void Resume()
+    {
+        canvasGame.GetComponent<CanvasGroup>().alpha = 1;
+        canvasGreenRoom.GetComponent<CanvasGroup>().alpha = 0;
+
+    }
     public void StartGame()
     {
-         //gp = FindObjectOfType<Gameplay>();
-        //gp.checkingGreen = false;
-        SceneManager.LoadScene(sceneName: "Greenhouse");       
+        SceneManager.LoadScene(sceneName: "Greenhouse");
+        File.Delete("Assets/StreamingAssets/GreenHouse.txt");
+        
     }
 
     public void Leaderboard()
@@ -35,9 +54,4 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(sceneName: "Main Menu");
     }
 
-    public void GreenHouseRoom()
-    {
-        SceneManager.LoadScene(sceneName: "Greenhouse Room", LoadSceneMode.Additive);
-    }
-
-}
+}    
