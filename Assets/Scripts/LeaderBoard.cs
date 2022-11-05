@@ -20,7 +20,8 @@ public class LeaderBoard : MonoBehaviour
     public float plantHealth;
 
     private string dollarPlant;
-    private string healthPlant;
+    [HideInInspector]
+    public string healthPlant;
     public string namePlant;
     [HideInInspector]
     public string fileName;

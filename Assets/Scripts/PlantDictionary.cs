@@ -5,6 +5,12 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
 using System.Linq;
+using static UnityEngine.Rendering.DebugUI;
+using Unity.VisualScripting;
+using System.Diagnostics.CodeAnalysis;
+using UnityEditor.Profiling.Memory.Experimental;
+using static UnityEditor.PlayerSettings;
+using JetBrains.Annotations;
 
 namespace AlexzanderCowell { 
 }
@@ -21,43 +27,56 @@ public class PlantDictionary : MonoBehaviour
     [HideInInspector]
     public string text;
     [SerializeField] private string[] plantsL;
-    
-    public void Addit(){ 
-        greenhouseTextFile = Application.streamingAssetsPath + "/GreenHouse" + ".txt";
+    //[SerializeField] List<string> plantL = new List<string>();
+    private string plantLine;
+    private string posPlant;
+    private int posPlant2;
+    private int index;
 
-
-    text = File.ReadAllText(greenhouseTextFile);
+    public void Addit()
+    {
 
         textWords.text = text.ToString();
+
+
     }
 
-    public void PressedUpdate(){
-        
-
+    public void PressedUpdate()
+    {
         if (plantsLeader.buttonCounter == 10)
         {
             Debug.Log("Max Limit");
         }
 
-        Debug.Log(plantsL);
+        greenhouseTextFile = Application.streamingAssetsPath + "/GreenHouse" + ".txt";
+        text = File.ReadAllText(greenhouseTextFile);
+        plantsL = text.Split(new string[] { ",", "\n" }, StringSplitOptions.None);
+        //plantL.Add(text);
+        plantLine = plantsLeader.healthPlant;
+        index = GetComponent<PlantDictionary>().plantsL.Count();
+
+
+    }
+    private void Update()
+    {
+
+
+        if (index > 10)
+        {
+            RemoveIT();
+        }
+        
     }
 
-    private void Update(){
-        plantsL = text.Split(new string[] { ",", "\n" }, StringSplitOptions.None);
-
-        if (plantsLeader.buttonCounter > 10)
+    private void RemoveIT()
+    {
+      if (posPlant == "|Plant Health: 3|" + "|Plant Health: 2|" + "|Plant Health: 1|" + "|Plant Health: 4|")
         {
-            Remove();
+            posPlant = GetComponent<PlantDictionary>().plantsL.ToList().ToString();
+
+            Debug.Log("Found It");
         }
 
     }
-
-    private void Remove()
-    {
-        
-
-    }
-
-
 }
 

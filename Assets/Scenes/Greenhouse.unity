@@ -2306,6 +2306,7 @@ MonoBehaviour:
   plantName: 
   plantValue: 0
   plantHealth: 0
+  healthPlant: 
   namePlant: 
   fileName: 
   fullPath: 
