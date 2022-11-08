@@ -11,9 +11,9 @@ namespace AlexzanderCowell
 }
 public class SceneLoader : MonoBehaviour
 {
-    [SerializeField] PlantsList plantsL;
     GameManager gameManager;
     [SerializeField] GameObject greenHouseUI;
+    [SerializeField] PlantDictionary plantDict;
     [SerializeField] GameObject canvasGame;
     [SerializeField] GameObject canvasGreenRoom;
     [SerializeField] LeaderBoard leaderB;
@@ -35,7 +35,7 @@ public class SceneLoader : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(sceneName: "Greenhouse");
-        File.Delete("Assets/StreamingAssets/GreenHouse.txt");
+        
         
     }
 

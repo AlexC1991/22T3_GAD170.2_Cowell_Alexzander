@@ -287,18 +287,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1763798916}
-        m_TargetAssemblyTypeName: PlantsList, Assembly-CSharp
-        m_MethodName: PlantToText
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
       - m_Target: {fileID: 918635383}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
@@ -1455,30 +1443,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1763798918}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: RoundCountDown
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1763798920}
-        m_TargetAssemblyTypeName: ScoreSystem, Assembly-CSharp
-        m_MethodName: Score
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 918635383}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
@@ -1491,33 +1455,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1763798916}
-        m_TargetAssemblyTypeName: PlantsList, Assembly-CSharp
-        m_MethodName: PlantToText
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1763798921}
-        m_TargetAssemblyTypeName: LeaderBoard, Assembly-CSharp
-        m_MethodName: StartKey
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1763798922}
         m_TargetAssemblyTypeName: PlantDictionary, Assembly-CSharp
-        m_MethodName: PressedUpdate
+        m_MethodName: PlantToStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1763798918}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RoundCountDown
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1784,7 +1736,11 @@ PrefabInstance:
     - target: {fileID: 4653942318848516394, guid: da435eb59f9781c49888a9489ec2db72, type: 3}
       propertyPath: plantsL
       value: 
-      objectReference: {fileID: 1763798916}
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653942318848516394, guid: da435eb59f9781c49888a9489ec2db72, type: 3}
+      propertyPath: plantDict
+      value: 
+      objectReference: {fileID: 1763798922}
     - target: {fileID: 4653942318848516394, guid: da435eb59f9781c49888a9489ec2db72, type: 3}
       propertyPath: canvasGame
       value: 
@@ -2141,7 +2097,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1763798922}
         m_TargetAssemblyTypeName: PlantDictionary, Assembly-CSharp
-        m_MethodName: Addit
+        m_MethodName: PlantListSave
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2199,9 +2155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1763798917}
   - component: {fileID: 1763798918}
-  - component: {fileID: 1763798916}
   - component: {fileID: 1763798920}
-  - component: {fileID: 1763798919}
   - component: {fileID: 1763798921}
   - component: {fileID: 1763798922}
   m_Layer: 0
@@ -2211,22 +2165,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1763798916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1763798915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe6d79302152067499512355870837d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  plantCaller: {fileID: 2317877}
-  returnPrice: 0
-  returnHealth: 0
-  returnArray: 
 --- !u!4 &1763798917
 Transform:
   m_ObjectHideFlags: 0
@@ -2255,24 +2193,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roundCounter: {fileID: 395981148}
-  plantList: {fileID: 1763798916}
+  plantDict: {fileID: 1763798922}
   scoreSystem: {fileID: 1763798920}
   sceneLoader: {fileID: 2118326339}
---- !u!114 &1763798919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1763798915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c9a1eea0c55cde49880692ae9fb98bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fonts:
-  - {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-  - {fileID: 12800000, guid: 997a43b767814dd0a7642ec9b78cba41, type: 3}
 --- !u!114 &1763798920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2285,7 +2208,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e220c7060cfe904bb921a351bd0331d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantList: {fileID: 1763798916}
   priceTotal: 0
   healthTotal: 0
   greenHouse: 
@@ -2301,17 +2223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c750cec6c50059468a2a1a3f1355bae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantInfo: {fileID: 1763798916}
   printItOut: {fileID: 917204284}
-  plantName: 
-  plantValue: 0
-  plantHealth: 0
-  healthPlant: 
-  namePlant: 
-  fileName: 
-  fullPath: 
-  transferNumber: 0
-  buttonCounter: 0
 --- !u!114 &1763798922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2330,7 +2242,9 @@ MonoBehaviour:
   greenhouseTextFile: 
   fileLines: 
   text: 
-  plantsL: []
+  outputHealthness: []
+  plantCaller: {fileID: 2317877}
+  plantPrinter: {fileID: 917204284}
 --- !u!1 &1861387541
 GameObject:
   m_ObjectHideFlags: 0
