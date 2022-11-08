@@ -6,21 +6,27 @@ using System.IO;
 using UnityEngine.UI;
 
 
-
-public class LeaderBoard : MonoBehaviour
+namespace AlexzanderCowell
 {
-    // Start is called before the first frame update
-    [SerializeField] Text printItOut;
 
 
-
-    private void Update(){
-
-    }
-    private void SaveData()
+    public class LeaderBoard : MonoBehaviour
     {
-    }
-    public void StartKey(){
-    }
+        // Start is called before the first frame update
+        [SerializeField] Text printItOut;
 
+
+
+        private void Update()
+        {
+
+        }
+        private void SaveData()
+        {
+        }
+        public void StartKey()
+        {
+        }
+
+    }
 }
