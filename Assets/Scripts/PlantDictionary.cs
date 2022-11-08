@@ -6,6 +6,7 @@ using System.IO;
 using UnityEngine.UI;
 using System.Linq;
 using UnityEditor;
+using Unity.VisualScripting;
 
 namespace AlexzanderCowell
 {
@@ -13,20 +14,29 @@ namespace AlexzanderCowell
 
     public class PlantDictionary : MonoBehaviour
     {
+        [HideInInspector]
         [SerializeField] GameManager gameManger;
+        [HideInInspector]
         [SerializeField] LeaderBoard plantsLeader;
+        [HideInInspector]
         [SerializeField] Text textWords;
+        [HideInInspector]
+        [SerializeField] GameObject plantsObject;
         [HideInInspector]
         public string greenhouseTextFile;
         [HideInInspector]
         public string fileLines;
         [HideInInspector]
         public string text;
+        [HideInInspector]
         [SerializeField] Plant plantPrefab;
-        [SerializeField] List<Plant> plantList = new List<Plant>();
+        [SerializeField] public List<Plant> plantList = new List<Plant>();
         [SerializeField] List<string> _plantNames = new List<string>();
+        [HideInInspector]
         [SerializeField] Plant currentPlant;
+        [HideInInspector]
         [SerializeField] private Text plantCaller;
+        [HideInInspector]
         [SerializeField] private Text plantPrinter;
         protected void Awake()
         {
@@ -83,24 +93,30 @@ namespace AlexzanderCowell
         {
             plantList.Add(currentPlant);
         } // Adds the current plant i choose to keep and puts it into a plantList.
-        public void PlantListSave()
-        {
-            foreach ( Plant plant in plantList)
-            {
-                plantPrinter.text = ("|Plant Name: " + plant.plantName + "| |Plant Price: " + plant.maxPrice + "| |Plant Health: " + plant.maxHealth + "|" + "\n").ToString();                
+        public void PlantListSave(){
+            foreach ( Plant plant in plantList){
+                plantPrinter.text += ("|Plant Name: " + plant.plantName + "| |Plant Price: " + plant.maxPrice + "| |Plant Health: " + plant.maxHealth + "|" + "\n").ToString();
             }
-        }
-        private void PlantGreenHouseReader()
-        {
-            foreach ( Plant plant in plantList)
-            {
-                if (plant.plantName.Count() == 10)
-                {
-                    Debug.Log("Max Plants");
+
+        }// Adds the saved plant list to the UI Greenhouse text box.
+
+        public void PlantListMinus(){
+            foreach (Plant plant in plantList){
+                plantPrinter.text = ("").ToString();
+            }
+        } // Removes the text from the UI Greenhouse text box.
+        private void PlantGreenHouseReader(){
+            foreach (Plant plant in plantList){
+                if (plantList.Count() > 9){
+                    Debug.Log("Max");                   
                 }
             }
-        }
+            
+           
+        }       
     }
+
+
 }
 
 

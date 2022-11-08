@@ -1456,8 +1456,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1763798922}
-        m_TargetAssemblyTypeName: PlantDictionary, Assembly-CSharp
-        m_MethodName: PlantToStart
+        m_TargetAssemblyTypeName: AlexzanderCowell.PlantDictionary, Assembly-CSharp
+        m_MethodName: StartPlanting
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1470,6 +1470,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1763798918}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: RoundCountDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1763798922}
+        m_TargetAssemblyTypeName: AlexzanderCowell.PlantDictionary, Assembly-CSharp
+        m_MethodName: AddNewPlant
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2196,6 +2208,8 @@ MonoBehaviour:
   plantDict: {fileID: 1763798922}
   scoreSystem: {fileID: 1763798920}
   sceneLoader: {fileID: 2118326339}
+  roundClickMax: 20
+  roundClickMin: 0
 --- !u!114 &1763798920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2224,6 +2238,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   printItOut: {fileID: 917204284}
+  gameM: {fileID: 1763798918}
+  plantDictionary: {fileID: 1763798922}
 --- !u!114 &1763798922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2239,10 +2255,14 @@ MonoBehaviour:
   gameManger: {fileID: 1763798918}
   plantsLeader: {fileID: 1763798921}
   textWords: {fileID: 917204284}
+  plantsObject: {fileID: 6114866781201976918, guid: b92c0111e968f944687984ca966ec2ce, type: 3}
   greenhouseTextFile: 
   fileLines: 
   text: 
-  outputHealthness: []
+  plantPrefab: {fileID: 769997117693393073, guid: b92c0111e968f944687984ca966ec2ce, type: 3}
+  plantList: []
+  _plantNames: []
+  currentPlant: {fileID: 0}
   plantCaller: {fileID: 2317877}
   plantPrinter: {fileID: 917204284}
 --- !u!1 &1861387541

@@ -18,8 +18,10 @@ namespace AlexzanderCowell
         [SerializeField] ScoreSystem scoreSystem;
         [SerializeField] SceneLoader sceneLoader;
         /// Round count down clock
-        private int roundClickMax = 20;
-        private int roundClickMin = 0;
+        public int roundClickMax = 20;
+        public int roundClickMin = 0;
+
+
 
         /// Timer for start
         private int startTimer = 3;
@@ -29,7 +31,7 @@ namespace AlexzanderCowell
 
         private void FixedUpdate()
         {
-            startTimer -= variableTime;
+           startTimer -= variableTime;
             if (startTimer == 3)
             {
                 finishedTimer = false;
@@ -44,7 +46,7 @@ namespace AlexzanderCowell
             {
                 Time.timeScale = 0;
             }
-            Debug.Log(startTimer);
+            //Debug.Log(startTimer);
         }
 
 

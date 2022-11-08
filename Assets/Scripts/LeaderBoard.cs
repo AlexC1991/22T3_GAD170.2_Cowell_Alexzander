@@ -14,7 +14,11 @@ namespace AlexzanderCowell
     {
         // Start is called before the first frame update
         [SerializeField] Text printItOut;
-
+        [SerializeField] GameManager gameM;
+        [SerializeField] PlantDictionary plantDictionary;
+        private int pointTotalH;
+        private int pointTotalP;
+        private int totalPoints;
 
 
         private void Update()
@@ -26,6 +30,18 @@ namespace AlexzanderCowell
         }
         public void StartKey()
         {
+            foreach (Plant plant in plantDictionary.plantList) { 
+            
+                if (gameM.roundClickMax == gameM.roundClickMin)
+                {
+                    pointTotalH = plant.maxHealth;
+                    pointTotalP = plant.maxPrice;
+                    totalPoints = pointTotalH + pointTotalP;
+                    Debug.Log(totalPoints);
+                }
+
+            }
+            
         }
 
     }
