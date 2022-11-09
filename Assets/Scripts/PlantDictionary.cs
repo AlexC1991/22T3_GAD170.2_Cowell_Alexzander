@@ -1,4 +1,4 @@
-using System;
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using System.Linq;
 using UnityEditor;
 using Unity.VisualScripting;
+using static UnityEngine.GraphicsBuffer;
 
 namespace AlexzanderCowell
 {
@@ -28,6 +29,8 @@ namespace AlexzanderCowell
         public string fileLines;
         [HideInInspector]
         public string text;
+        private int maxPlantHealth;
+        private int currentPlantHealth;
         [HideInInspector]
         [SerializeField] Plant plantPrefab;
         [SerializeField] public List<Plant> plantList = new List<Plant>();
@@ -75,8 +78,8 @@ namespace AlexzanderCowell
         private void Start(){       
             Plant newPlant = Instantiate(plantPrefab, transform); 
             newPlant.plantName = _plantNames[UnityEngine.Random.Range(0, _plantNames.Count())];
-            newPlant.maxHealth = UnityEngine.Random.Range(1, 11);
-            newPlant.maxPrice = UnityEngine.Random.Range(1, 13);
+            newPlant.maxHealth = Random.Range(1, 11);
+            newPlant.maxPrice = Random.Range(1, 13);
             currentPlant = newPlant;
             plantCaller.text = "You found a " + currentPlant.plantName + ", this flower is worth $" + currentPlant.maxPrice + " and the health of this flower is " + currentPlant.maxHealth + "/10. Do you want to keep it or reject it?".ToString();
         } // Starting Script for the Game for Game text & Random Plant Names, Plant Price & Plant Health to Populate.
@@ -84,7 +87,7 @@ namespace AlexzanderCowell
             Plant newPlant = Instantiate(plantPrefab,transform); // Do not spawn every frame only when i press the button.
             newPlant.plantName = _plantNames[UnityEngine.Random.Range(0, _plantNames.Count())]; 
             newPlant.maxHealth = UnityEngine.Random.Range(1, 11);
-            newPlant.maxPrice = UnityEngine.Random.Range(1, 13);
+            newPlant.maxPrice = Random.Range(1, 13);
             currentPlant = newPlant;
             plantCaller.text = "You found a " + currentPlant.plantName + ", this flower is worth $" + currentPlant.maxPrice + " and the health of this flower is " + currentPlant.maxHealth + "/10. Do you want to keep it or reject it?".ToString();               
         } // Button to keep Populating the Text UI.
@@ -92,30 +95,42 @@ namespace AlexzanderCowell
         public void AddNewPlant()
         {
             plantList.Add(currentPlant);
-        } // Adds the current plant i choose to keep and puts it into a plantList.
-        public void PlantListSave(){
-            foreach ( Plant plant in plantList){
-                plantPrinter.text += ("|Plant Name: " + plant.plantName + "| |Plant Price: " + plant.maxPrice + "| |Plant Health: " + plant.maxHealth + "|" + "\n").ToString();
+            if (plantList.Count() == 11)
+            {
+                plantList.RemoveAt(0);
+                Debug.Log(maxPlantHealth + "Destroy");
             }
 
-        }// Adds the saved plant list to the UI Greenhouse text box.
+            // Adds the current plant i choose to keep and puts it into a plantList.
+        }
+        public void PlantListSave()
+        {
+            foreach (Plant plant in plantList)
+            {
+                plantPrinter.text += ("|Plant Name: " + plant.plantName + "| |Plant Price: " + plant.maxPrice + "| |Plant Health: " + plant.maxHealth + "|" + "\n").ToString();                                  
+            }
+            Debug.Log(plantList.Count());
+            
+        }
+        // Adds the saved plant list to the UI Greenhouse text box.
 
-        public void PlantListMinus(){
+        
+            public void PlantListMinus(){
             foreach (Plant plant in plantList){
                 plantPrinter.text = ("").ToString();
             }
-        } // Removes the text from the UI Greenhouse text box.
-        private void PlantGreenHouseReader(){
-            foreach (Plant plant in plantList){
-                if (plantList.Count() > 9){
-                    Debug.Log("Max");                   
-                }
-            }
-            
-           
-        }       
-    }
+        } // Removes the text from the UI Greenhouse text box
 
+        private void Update()
+        {
+            foreach (Plant plant in plantList.ToList())
+            {
+                plantList = plantList.OrderBy(o => o.maxHealth).ToList();
+            }
+
+        }
+
+    }
 
 }
 
