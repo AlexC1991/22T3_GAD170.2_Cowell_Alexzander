@@ -1,10 +1,7 @@
-using System.IO;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
+
 
 namespace AlexzanderCowell
 {
@@ -12,46 +9,17 @@ namespace AlexzanderCowell
 
     public class GameManager : MonoBehaviour
     {
-
-        [SerializeField] Text roundCounter;
-        [SerializeField] PlantDictionary plantDict;
-        [SerializeField] ScoreSystem scoreSystem;
-        [SerializeField] SceneLoader sceneLoader;
+        [HideInInspector]
+        [SerializeField] private Text roundCounter;
+        [HideInInspector]
+        [SerializeField] private PlantDictionary plantDict;
+        [HideInInspector]
+        [SerializeField] private SceneLoader sceneLoader;
         /// Round count down clock
+        [HideInInspector]
         public int roundClickMax = 20;
+        [HideInInspector]
         public int roundClickMin = 0;
-
-
-
-        /// Timer for start
-        private int startTimer = 3;
-        private int variableTime = 1;
-        private int endTimer = 0;
-        private bool finishedTimer;
-
-        private void FixedUpdate()
-        {
-           startTimer -= variableTime;
-            if (startTimer == 3)
-            {
-                finishedTimer = false;
-            }
-            if (startTimer == endTimer)
-            {
-                finishedTimer = true;
-                //plantDict.StartPlanting();
-            }
-
-            if (finishedTimer == true)
-            {
-                Time.timeScale = 0;
-            }
-            //Debug.Log(startTimer);
-        }
-
-
-
-
         public void RoundCountDown()
         {
             roundClickMax -= (1);
@@ -60,7 +28,8 @@ namespace AlexzanderCowell
 
             if (roundClickMax == (1))
             {
-                Debug.Log("Final Flower!");
+                plantDict.EndOfRounds();
+                roundCounter.text = "Last Flower".ToString();
             }
 
 
@@ -69,7 +38,7 @@ namespace AlexzanderCowell
                 sceneLoader.Leaderboard();
             }
 
-        }
+        } // Round count down to be activated in game.
 
     }
 }

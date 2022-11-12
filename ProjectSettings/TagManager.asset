@@ -10,6 +10,8 @@ TagManager:
   - KeepButton
   - RejectButton
   - GreenhouseScene
+  - leaderBox
+  - leaderText
   layers:
   - Default
   - TransparentFX

@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1424,7 +1424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1756,7 +1756,7 @@ PrefabInstance:
     - target: {fileID: 4653942318848516394, guid: da435eb59f9781c49888a9489ec2db72, type: 3}
       propertyPath: leaderB
       value: 
-      objectReference: {fileID: 1763798921}
+      objectReference: {fileID: 0}
     - target: {fileID: 4653942318848516394, guid: da435eb59f9781c49888a9489ec2db72, type: 3}
       propertyPath: plantsL
       value: 
@@ -1765,6 +1765,10 @@ PrefabInstance:
       propertyPath: plantDict
       value: 
       objectReference: {fileID: 1763798922}
+    - target: {fileID: 4653942318848516394, guid: da435eb59f9781c49888a9489ec2db72, type: 3}
+      propertyPath: storeData
+      value: 
+      objectReference: {fileID: 11400000, guid: eeeb245d6e6687242983669b53c1bf8a, type: 2}
     - target: {fileID: 4653942318848516394, guid: da435eb59f9781c49888a9489ec2db72, type: 3}
       propertyPath: canvasGame
       value: 
@@ -2088,7 +2092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2179,8 +2183,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1763798917}
   - component: {fileID: 1763798918}
-  - component: {fileID: 1763798920}
-  - component: {fileID: 1763798921}
   - component: {fileID: 1763798922}
   - component: {fileID: 1763798924}
   - component: {fileID: 1763798923}
@@ -2220,39 +2222,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roundCounter: {fileID: 395981148}
   plantDict: {fileID: 1763798922}
-  scoreSystem: {fileID: 1763798920}
   sceneLoader: {fileID: 2118326339}
   roundClickMax: 20
   roundClickMin: 0
---- !u!114 &1763798920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1763798915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e220c7060cfe904bb921a351bd0331d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  priceTotal: 0
-  healthTotal: 0
-  greenHouse: 
---- !u!114 &1763798921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1763798915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c750cec6c50059468a2a1a3f1355bae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  printItOut: {fileID: 917204284}
-  gameM: {fileID: 1763798918}
 --- !u!114 &1763798922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2265,19 +2237,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35824b43445d6874c970773d1b799409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManger: {fileID: 1763798918}
-  plantsLeader: {fileID: 1763798921}
-  textWords: {fileID: 917204284}
-  plantsObject: {fileID: 6114866781201976918, guid: b92c0111e968f944687984ca966ec2ce, type: 3}
-  greenhouseTextFile: 
-  fileLines: 
-  text: 
+  sceneLoader: {fileID: 2118326339}
+  totalHealth: 0
+  totalPrice: 0
   plantPrefab: {fileID: 769997117693393073, guid: b92c0111e968f944687984ca966ec2ce, type: 3}
   plantList: []
   _plantNames: []
-  currentPlant: {fileID: 0}
   plantCaller: {fileID: 2317877}
   plantPrinter: {fileID: 917204284}
+  storedData: {fileID: 11400000, guid: eeeb245d6e6687242983669b53c1bf8a, type: 2}
 --- !u!199 &1763798923
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -7292,7 +7260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}

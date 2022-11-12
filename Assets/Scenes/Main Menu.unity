@@ -698,7 +698,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 937788469}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlantsList, Assembly-CSharp
         m_MethodName: PlantToText
         m_Mode: 1
@@ -949,8 +949,6 @@ GameObject:
   m_Component:
   - component: {fileID: 937788472}
   - component: {fileID: 937788471}
-  - component: {fileID: 937788469}
-  - component: {fileID: 937788470}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -958,31 +956,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &937788469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937788468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe6d79302152067499512355870837d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  plantCaller: {fileID: 0}
---- !u!114 &937788470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937788468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e220c7060cfe904bb921a351bd0331d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &937788471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -996,9 +969,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roundCounter: {fileID: 0}
-  plantList: {fileID: 937788469}
-  scoreSystem: {fileID: 937788470}
+  plantDict: {fileID: 0}
   sceneLoader: {fileID: 94515646}
+  roundClickMax: 20
+  roundClickMin: 0
 --- !u!4 &937788472
 Transform:
   m_ObjectHideFlags: 0
@@ -1439,6 +1413,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4653942318848516394, guid: da435eb59f9781c49888a9489ec2db72, type: 3}
+      propertyPath: storeData
+      value: 
+      objectReference: {fileID: 11400000, guid: eeeb245d6e6687242983669b53c1bf8a, type: 2}
     - target: {fileID: 4653942318848516395, guid: da435eb59f9781c49888a9489ec2db72, type: 3}
       propertyPath: m_RootOrder
       value: 1
