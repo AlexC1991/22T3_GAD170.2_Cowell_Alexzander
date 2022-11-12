@@ -64,5 +64,10 @@ namespace AlexzanderCowell
             SceneManager.LoadScene(sceneName: "Main Menu");
         } // Calls for the main menu scene to be started.
 
+        public void Credits()
+        {
+            SceneManager.LoadScene(sceneName: "CreditsScene");
+        }
+
     }
 }

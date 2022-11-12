@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Leaderboard.unity
     guid: ff2c6c5067430dc4a9053692687174f9
   - enabled: 1
-    path: Assets/Scenes/Greenhouse Room.unity
-    guid: 06179f8122bcbd946a144a191fa27ebc
+    path: Assets/Scenes/CreditsScene.unity
+    guid: 42af7c1918906074da968a0810a36e68
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

@@ -16,6 +16,8 @@ namespace AlexzanderCowell
         [HideInInspector]
         [SerializeField] private SceneLoader sceneLoader;
         /// Round count down clock
+        [SerializeField] private GameObject onMusic;
+        [SerializeField] private GameObject offMusic;
         [HideInInspector]
         public int roundClickMax = 20;
         [HideInInspector]
@@ -40,5 +42,21 @@ namespace AlexzanderCowell
 
         } // Round count down to be activated in game.
 
+
+        public void MusicOn()
+        {
+            onMusic.GetComponent<CanvasGroup>().alpha = 1;
+            onMusic.GetComponent<CanvasGroup>().blocksRaycasts = true;
+            offMusic.GetComponent<CanvasGroup>().alpha = 0;
+            offMusic.GetComponent<CanvasGroup>().blocksRaycasts = false;
+        }
+        public void MusicOff()
+        {
+            offMusic.GetComponent<CanvasGroup>().alpha = 1;
+            offMusic.GetComponent<CanvasGroup>().blocksRaycasts = true;
+            onMusic.GetComponent<CanvasGroup>().alpha = 0;
+            onMusic.GetComponent<CanvasGroup>().blocksRaycasts = false;
+        }
     }
+
 }
