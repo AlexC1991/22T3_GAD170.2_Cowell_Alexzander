@@ -20,7 +20,6 @@ namespace AlexzanderCowell
         [SerializeField] private GameObject canvasGame;
         [HideInInspector]
         [SerializeField] private GameObject canvasGreenRoom;
-        [HideInInspector]
         [SerializeField] private LeaderBoard leaderB;
         [SerializeField] private FloatSO storeData;
         public void ChangeToGreenHouseRoom()
@@ -50,8 +49,8 @@ namespace AlexzanderCowell
         } // Calls for the main game scene to be started.
 
         public void Leaderboard()
-        {
-            SceneManager.LoadScene(sceneName: "Leaderboard");
+        {           
+            SceneManager.LoadScene(sceneName: "Leaderboard");           
         }  // Calls for the scene manger to load the leaderboard scene.
 
         public void ExitGame()
@@ -62,12 +61,14 @@ namespace AlexzanderCowell
         public void MainMenu()
         {
             SceneManager.LoadScene(sceneName: "Main Menu");
+            storeData.Health = 0;
+            storeData.Price = 0;
         } // Calls for the main menu scene to be started.
 
         public void Credits()
         {
             SceneManager.LoadScene(sceneName: "CreditsScene");
-        }
+        } // Credts for references.
 
     }
 }

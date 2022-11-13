@@ -1097,8 +1097,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
-  m_Sprite: {fileID: 21300000, guid: 51b84be6c1e10b548967fe184b33196e, type: 3}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: 8229436e51adc93428cb8fe301899320, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2087,9 +2087,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1348144132}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &1348144138
 MonoBehaviour:
@@ -2103,10 +2103,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c750cec6c50059468a2a1a3f1355bae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  printItOut: {fileID: 0}
-  storedData: {fileID: 11400000, guid: eeeb245d6e6687242983669b53c1bf8a, type: 2}
+  entryTemplate: {fileID: 8037084670150408069, guid: 958881c5798012b408396c71e2a075ba, type: 3}
   inputCanvas: {fileID: 1118100735}
   leaderCanvas: {fileID: 1348144132}
+  storedData: {fileID: 11400000, guid: eeeb245d6e6687242983669b53c1bf8a, type: 2}
   namePut: {fileID: 15187092}
 --- !u!114 &1391157366 stripped
 MonoBehaviour:

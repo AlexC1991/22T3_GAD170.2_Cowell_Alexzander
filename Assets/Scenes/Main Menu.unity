@@ -207,8 +207,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 94515646}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: Leaderboard
+        m_TargetAssemblyTypeName: AlexzanderCowell.SceneLoader, Assembly-CSharp
+        m_MethodName: LeaderboardFromMain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -710,6 +710,7 @@ GameObject:
   m_Component:
   - component: {fileID: 937788472}
   - component: {fileID: 937788471}
+  - component: {fileID: 937788473}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -751,6 +752,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &937788473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937788468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c750cec6c50059468a2a1a3f1355bae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entryTemplate: {fileID: 0}
+  inputCanvas: {fileID: 0}
+  leaderCanvas: {fileID: 0}
+  storedData: {fileID: 0}
+  namePut: {fileID: 0}
 --- !u!1 &1141802819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,6 +1327,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4653942318848516394, guid: da435eb59f9781c49888a9489ec2db72, type: 3}
+      propertyPath: leaderB
+      value: 
+      objectReference: {fileID: 937788473}
     - target: {fileID: 4653942318848516394, guid: da435eb59f9781c49888a9489ec2db72, type: 3}
       propertyPath: storeData
       value: 

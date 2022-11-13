@@ -49,14 +49,14 @@ namespace AlexzanderCowell
             onMusic.GetComponent<CanvasGroup>().blocksRaycasts = true;
             offMusic.GetComponent<CanvasGroup>().alpha = 0;
             offMusic.GetComponent<CanvasGroup>().blocksRaycasts = false;
-        }
+        } // Switches the buttons for music on.
         public void MusicOff()
         {
             offMusic.GetComponent<CanvasGroup>().alpha = 1;
             offMusic.GetComponent<CanvasGroup>().blocksRaycasts = true;
             onMusic.GetComponent<CanvasGroup>().alpha = 0;
             onMusic.GetComponent<CanvasGroup>().blocksRaycasts = false;
-        }
+        } // Switches the buttons for music off.
     }
 
 }
