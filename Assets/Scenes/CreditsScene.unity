@@ -245,7 +245,7 @@ MonoBehaviour:
   canvasGame: {fileID: 0}
   canvasGreenRoom: {fileID: 0}
   leaderB: {fileID: 0}
-  storeData: {fileID: 0}
+  storeData: {fileID: 11400000, guid: eeeb245d6e6687242983669b53c1bf8a, type: 2}
 --- !u!1 &383886683
 GameObject:
   m_ObjectHideFlags: 0

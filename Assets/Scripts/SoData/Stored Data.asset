@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 580367b0ab5b60c46ac263b9003c977f, type: 3}
   m_Name: Stored Data
   m_EditorClassIdentifier: 
-  _Health: 5
-  _Price: 8
+  _Health: 81
+  _Price: 81

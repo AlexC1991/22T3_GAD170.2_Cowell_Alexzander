@@ -357,6 +357,10 @@ PrefabInstance:
       value: SceneManager
       objectReference: {fileID: 0}
     - target: {fileID: 4653942318848516394, guid: da435eb59f9781c49888a9489ec2db72, type: 3}
+      propertyPath: leaderB
+      value: 
+      objectReference: {fileID: 1348144138}
+    - target: {fileID: 4653942318848516394, guid: da435eb59f9781c49888a9489ec2db72, type: 3}
       propertyPath: storeData
       value: 
       objectReference: {fileID: 11400000, guid: eeeb245d6e6687242983669b53c1bf8a, type: 2}

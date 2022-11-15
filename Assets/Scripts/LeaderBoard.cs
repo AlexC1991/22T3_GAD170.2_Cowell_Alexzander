@@ -22,18 +22,73 @@ namespace AlexzanderCowell
         private List<Transform> highscoreEntryTransformList;
         private string convertedInput;
         private string fileName = "PlantScore";
+		
+        
+		private Highscores highscores;
+		private int num_scores = 0; //Number of scores
+        
+        //Const Strings for the names of the Save Data keys. Change these here to try with new Save Data quickly
+        private const string save_file_num_of_scores_name = "SFNOSabcdef";
+        private const string save_file_score_name = "SFSabcdef";
+        private const string save_file_name_name = "SFNabcdef";
+
+        public static int type = 0; //Depending on whether accessed from Menu or Gameplay session
+        private byte i;
+    
+		
         private void Awake()
         {
             convertMeInt = storedData.Health; // Transfered Health Score
             convertMeInt += storedData.Price; // Transfered Price Score.
             totalPoints = Convert.ToInt32(convertMeInt); // Converting float to a int. 
 
+            highscoreEntryTransformList = new List<Transform>(); ////////////////////////
+
+
             entryContainer = transform.Find("LeaderboardBox"); // finding child called LeaderboardBox.
 
-            string jsonString = PlayerPrefs.GetString(fileName); // Getting data from fileName.
-            Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString); // Putting the data from Jason into the highscores.
 
-            ChangeList(highscores); // Updating Leaderboard with new details.
+            ///////////////////////////////////////////////////////////////////
+			///////////////////////////////////////////////////////////////////
+            ///
+            
+            //Num of scores save data loading(If it has it, otherwise creating new with starting val of 0)
+			if (PlayerPrefs.HasKey(save_file_num_of_scores_name))
+			{
+				num_scores = PlayerPrefs.GetInt(save_file_num_of_scores_name);
+                Debug.Log("NumberOfScoresSave found: " + num_scores.ToString());
+			}
+			else
+			{
+                Debug.Log("NumberOfScoresSave not found ");
+				num_scores = 0;
+				PlayerPrefs.SetInt(save_file_num_of_scores_name, 0);
+                PlayerPrefs.Save();
+			}
+
+            //Making ScoreList list based on Save Data:
+            highscores = new Highscores();
+
+            for (i = 0; i < num_scores; i++)
+            {
+                HighscoreEntry he = new HighscoreEntry();
+                he.score = PlayerPrefs.GetInt(save_file_score_name + (i+1).ToString());
+                he.name = PlayerPrefs.GetString(save_file_name_name + (i+1).ToString());
+                Debug.Log((i+1).ToString() + ")" + he.name + ": " + he.score);
+                highscores.ScoreList.Add(he);
+			}
+
+            //If accessed from Main Menu showing the list right away, rather than after adding a new score
+            if (type == 0) 
+			{
+                ChangeList();
+			}
+            ///
+			////////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////////
+            
+
+             // Updating Leaderboard with new details.
         } // Start of the scene and all loaded Variables.
 
 
@@ -47,9 +102,10 @@ namespace AlexzanderCowell
             else
                 Change();
         } // changes the scene depending you come from the game to the leaderboard or from the main menu.
-        private void ChangeList(Highscores highscores)
+        private void ChangeList()
         {
-            for (int i = 0; i < highscores.ScoreList.Count; i++)
+            /*
+            for (i = 0; i < highscores.ScoreList.Count; i++)
             {
                 for (int j = i + 1; j < highscores.ScoreList.Count; j++)
                 {
@@ -60,34 +116,68 @@ namespace AlexzanderCowell
                         highscores.ScoreList[j] = tmp;
                     }
                 }
-            }
+            }*/
+            //highscores.ScoreList.Sort((x, y) => x.score.CompareTo(y.score));
 
-            highscoreEntryTransformList = new List<Transform>();
 
-            foreach (HighscoreEntry highscoreEntry in highscores.ScoreList)
+            //Temp array... Giving it the same values as the highscores array
+            List<HighscoreEntry> ta = new List<HighscoreEntry>();
+            for (i = 0; i < highscores.ScoreList.Count; i++)
             {
-
-                CreateNewEntry(highscoreEntry, entryContainer, highscoreEntryTransformList);
+                ta.Add(highscores.ScoreList[i]);
             }
-        } // Sorts the highscore list.
 
-        private void CreateNewEntry(HighscoreEntry highscoreEntry, Transform container, List<Transform> transformList)
+            //Then sorted array:
+            List<HighscoreEntry> sorted_list = new List<HighscoreEntry>();
+
+            while (ta.Count > 0 && sorted_list.Count < 8)
+            {
+                int max_val = -1000;
+                int max_val_index = 0;
+                for (i = 0; i < ta.Count; i++)
+                {
+                    if (ta[i].score > max_val)
+				    {
+                        max_val = ta[i].score;
+                        max_val_index = i;
+				    }
+			    }
+                sorted_list.Add(ta[max_val_index]);
+                ta.RemoveAt(max_val_index);
+            }
+
+            highscores.ScoreList = new List<HighscoreEntry>(); //Also gonna refresh the highscores.ScoreList to match sorted_list
+            PlayerPrefs.SetInt(save_file_num_of_scores_name, sorted_list.Count); //Amount of score entries
+            //Displaying list:
+            for (i = 0; i < Math.Min(sorted_list.Count, 8); i++)
+            {
+                highscores.ScoreList.Add(sorted_list[i]); //highscores.ScoreList will be the same as sorted_list after this for loop
+                
+                //Saving Values accordingly:
+			    PlayerPrefs.SetInt(save_file_score_name + (i + 1).ToString(), sorted_list[i].score);
+                PlayerPrefs.SetString(save_file_name_name + (i + 1).ToString(), sorted_list[i].name);
+                PlayerPrefs.Save();
+
+                CreateNewEntry(sorted_list[i], entryContainer, highscoreEntryTransformList, i);
+			}
+        }
+
+        private void CreateNewEntry(HighscoreEntry highscoreEntry, Transform container, List<Transform> transformList, int ind)
         {
-
-
             Transform entryTransform = Instantiate(entryTemplate, container);
             RectTransform entryRectTransform = entryTransform.GetComponent<RectTransform>();
-            entryRectTransform.anchoredPosition = new Vector2(0.52f, -templateHeight * transformList.Count);
+            //entryRectTransform.anchoredPosition = new Vector2(1.2f,-templateHeight * transformList.Count + ind * 1.333f);//new Vector2(0.52f, -templateHeight * transformList.Count);
+            entryRectTransform.anchoredPosition = new Vector2(0.52f, -templateHeight * highscoreEntryTransformList.Count);
             entryTransform.gameObject.SetActive(true);
 
+            highscoreEntryTransformList.Add(entryTransform); //////////////////////////////////////
 
+            //if (transformList.Count == 8)
+            //{
+                //transformList.RemoveAt(8);
+            //}
 
-            if (transformList.Count == 8)
-            {
-                transformList.RemoveAt(8);
-            }
-
-            int rank = transformList.Count + 1;
+            int rank = highscoreEntryTransformList.Count;
 
             string rankString;
 
@@ -110,8 +200,6 @@ namespace AlexzanderCowell
 
             string name = highscoreEntry.name;
             entryTransform.Find("nameText").GetComponent<Text>().text = name;
-
-
         } // Adds Entries to the Leaderboard.
 
         private void Change()
@@ -144,37 +232,45 @@ namespace AlexzanderCowell
                 name = name
             };
 
-            Highscores _highscores = new Highscores();
+            Debug.Log("Highscore entry: " + name + " " + score);
+			
 
-            if (PlayerPrefs.HasKey(fileName))
-            {
-                string jsonString = PlayerPrefs.GetString(fileName);
-                Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
-                _highscores = highscores;
-            }
+            /////////////////////////////////////////////
+            /////////////////////////////////////////////
+            ////
+			num_scores++;
 
-            _highscores.ScoreList = new List<HighscoreEntry>();
-            currentScore = highscoreEntry;
-            _highscores.ScoreList.Add(currentScore);
-            string json = JsonUtility.ToJson(_highscores);
-            PlayerPrefs.SetString(fileName, json);
+            PlayerPrefs.SetInt(save_file_num_of_scores_name, num_scores);
+			PlayerPrefs.SetInt(save_file_score_name + num_scores.ToString(), score);
+            PlayerPrefs.SetString(save_file_name_name + num_scores.ToString(), name);
             PlayerPrefs.Save();
+
+            highscores.ScoreList.Add(highscoreEntry);
+
+            Debug.Log("Num scores = " + num_scores);
+            /////////////////////////////////////////////
+
+            currentScore = highscoreEntry;
+
             Debug.Log("Finsihed Adding Score");
 
-            ChangeList(_highscores);
+            ChangeList(); /////////////////////////////////
         } // Adds the Input Field name + Total Score and adds it into a list class and than saves that class details to a JsonFile using PlayerPrefs.
-    }
-}
-// public classes
-[System.Serializable]
-public class Highscores
-{
-    public List<HighscoreEntry> ScoreList = new List<HighscoreEntry>();
-}
 
-[System.Serializable]
-public class HighscoreEntry
-{
-    public int score;
-    public string name;
+
+
+        // public classes
+        [System.Serializable]
+        public class Highscores
+        {
+            public List<HighscoreEntry> ScoreList = new List<HighscoreEntry>();
+        }
+
+        [System.Serializable]
+        public class HighscoreEntry
+        {
+            public int score;
+            public string name;
+        }
+    }
 }

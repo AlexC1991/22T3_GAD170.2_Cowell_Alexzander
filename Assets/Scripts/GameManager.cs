@@ -37,7 +37,7 @@ namespace AlexzanderCowell
 
             if (roundClickMax == roundClickMin)
             {
-                sceneLoader.Leaderboard();
+                sceneLoader.Leaderboard(1); /////////////////////////////////////////////////////////////////////////////////////////////////////////
             }
 
         } // Round count down to be activated in game.

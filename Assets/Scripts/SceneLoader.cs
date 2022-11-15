@@ -48,8 +48,9 @@ namespace AlexzanderCowell
             storeData.Price = 0;
         } // Calls for the main game scene to be started.
 
-        public void Leaderboard()
+        public void Leaderboard(int arg = 0) 
         {           
+            LeaderBoard.type = arg;
             SceneManager.LoadScene(sceneName: "Leaderboard");           
         }  // Calls for the scene manger to load the leaderboard scene.
 
